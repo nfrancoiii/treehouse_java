@@ -20,13 +20,19 @@ public class TreeStory {
         */
         String name = console.readLine("Enter your name:  ");
         String adjective = console.readLine("Enter an adjective:  ");
-        String noun = console.readLine("Enter a noun:  ");
-        if (noun.equalsIgnoreCase("dork") ||
-            noun.equalsIgnoreCase("jerk")){
-          console.printf("That language is not allowed. Exiting. \n\n");
-          System.exit(0);
-        }
-      console.printf("%s is very %s", name, adjective);
+      String noun;
+      boolean isInvalidWord;
+      do {  
+         noun = console.readLine("Enter a noun:  ");
+         isInvalidWord =(noun.equalsIgnoreCase("dork") ||
+                                noun.equalsIgnoreCase("jerk"));
+          if (isInvalidWord){  
+          console.printf("That language is not allowed. Try Again. \n\n");
+            
+          }
+      } while(noun.equalsIgnoreCase("dork") ||
+              noun.equalsIgnoreCase("jerk"));
+      console.printf("%s is a very %s %s\n", name, adjective, noun);
       
     }
     
